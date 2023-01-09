@@ -18,6 +18,7 @@
     <modules>
         <module>redis</module>
         <module>enquiry-centre</module>
+        <module>BasicConceptOfSpring</module>
     </modules>
 
     <properties>
