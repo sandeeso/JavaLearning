@@ -1,0 +1,3 @@
+# Project exclude paths
+/enquiry-centre/target/
+/redis/target/
