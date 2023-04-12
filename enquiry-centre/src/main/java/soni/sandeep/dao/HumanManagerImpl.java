@@ -33,11 +33,11 @@ public class HumanManagerImpl {
 
 
        EntityManagerFactory em = getEntityManager();
-        Query q = em.createEntityManager().createQuery("select p from People p");
-        return (People) q.getSingleResult();
+//        //Query q = em.createEntityManager().getCriteriaBuilder();
+//        return (People) q.getSingleResult();
 
-         /*Query q = e.createEntityManager().createQuery("select p from People p");
-         return (People) q.getSingleResult();*/
+         Query q = e.createEntityManager().createQuery("select p from People p where p.id = 1");
+         return (People) q.getSingleResult();
 
     }
 

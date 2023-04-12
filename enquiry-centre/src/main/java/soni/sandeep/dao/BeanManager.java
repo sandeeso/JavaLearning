@@ -11,6 +11,8 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.EclipseLinkJpaVendorAdapter;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
@@ -19,6 +21,7 @@ import java.sql.SQLException;
 @Configuration
 @EnableJpaRepositories
 @EnableTransactionManagement
+@Component
 public class BeanManager {
 
     @Autowired
@@ -52,10 +55,10 @@ public class BeanManager {
     @Bean(name = "entityManagerFactory")
     public  EntityManagerFactory entityManagerFactory() throws SQLException {
         LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
-        emf.setDataSource(slaveEntityManager());
+        emf.setDataSource(masterEntityManager());
         emf.setPackagesToScan("soni.sandeep");
         emf.setPersistenceUnitName("default");
-        emf.setJpaVendorAdapter(new EclipseLinkJpaVendorAdapter());// <- giving 'default' as name
+        emf.setJpaVendorAdapter(new HibernateJpaVendorAdapter());// <- giving 'default' as name
         emf.afterPropertiesSet();
         return emf.getObject();
     }

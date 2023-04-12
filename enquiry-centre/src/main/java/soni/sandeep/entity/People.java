@@ -11,7 +11,7 @@ public class People {
     String name;
     int age;
     String dob;
-    String profession;
+    String profssion;
 
     public Integer getId() {
         return id;
@@ -46,11 +46,11 @@ public class People {
     }
 
     public String getProfession() {
-        return profession;
+        return profssion;
     }
 
     public void setProfession(String profession) {
-        this.profession = profession;
+        this.profssion = profession;
     }
 
 
